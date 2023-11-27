@@ -5,10 +5,11 @@ import {
   AccordionTrigger,
 } from '@/components/ui/Accordion';
 
+const fallbackText = 'No data available';
 const substringForSearch = 'Description of the video from cabin-facing camera:';
 
 export const CabinVideoDescription = ({ description }: { description: string }) => {
-  const result = description.slice(
+  const cabinDescription = description.slice(
     description.indexOf(substringForSearch) + substringForSearch.length
   );
   return (
@@ -20,7 +21,7 @@ export const CabinVideoDescription = ({ description }: { description: string }) 
           </AccordionTrigger>
           <AccordionContent>
             <div className="rounded-2xl bg-white p-1 text-xl">
-              <p className="whitespace-pre-wrap p-8">{result}</p>
+              <p className="whitespace-pre-wrap p-8">{cabinDescription?.trim() || fallbackText}</p>
             </div>
           </AccordionContent>
         </AccordionItem>
