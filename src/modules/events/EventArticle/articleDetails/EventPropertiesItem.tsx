@@ -44,7 +44,7 @@ export const EventPropertiesItem = ({ label, value }: IEventPropertiesItem) => {
   const colors = getLabelColors(value);
   // Humanize the key to a more readable format
   const readableKey = label.replace(/_/g, ' ').replace(/\b\w/g, (word) => word.toUpperCase());
-  const valueFallback = value.toString().toUpperCase().replace(/_/g, ' ');
+  const valueFallback = value?.toString().toUpperCase().replace(/_/g, ' ') || 'N/A';
 
   return (
     <li className="flex items-center justify-between">
