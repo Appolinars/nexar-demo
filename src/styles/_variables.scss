@@ -1,0 +1,36 @@
+:root {
+  --font-main: 'Inter', sans-serif;
+  --color-accent: 122, 77, 255;
+  --color-accent-light: rgba(122, 77, 255, 0.08);
+  --color-dark-primary: #272b34;
+  --color-secondary: #717782;
+  --color-secondary-bg: #f5f6fa;
+  --color-success: 52, 199, 89;
+  --color-error: 255, 45, 85;
+  --color-warning: 255, 138, 0;
+}
+
+@mixin custom-scrollbar {
+  scrollbar-color: rgba(var(--color-accent)) var(--color-secondary-bg);
+  scrollbar-width: thin;
+  &::-webkit-scrollbar-track {
+    border-radius: 7px;
+    background-color: var(--color-secondary-bg);
+  }
+
+  &::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+    background-color: var(--color-secondary-bg);
+    border-radius: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: rgba(var(--color-accent));
+  }
+}
+
+.custom-scrollbar {
+  @include custom-scrollbar;
+}

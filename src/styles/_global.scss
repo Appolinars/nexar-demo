@@ -1,0 +1,16 @@
+@import "./variables";
+
+html {
+  scrollbar-color: var(--color-accent) var(--color-secondary-bg);
+  scrollbar-width: thin;
+}
+
+body {
+  font-size: 16px;
+  font-family: var(--font-main);
+  color: var(--color-dark-primary);
+  background-color: #fff;
+  overflow-x: hidden;
+
+  @include custom-scrollbar;
+}
