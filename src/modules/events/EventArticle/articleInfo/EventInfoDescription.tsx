@@ -21,7 +21,7 @@ export const EventInfoDescription = ({ selectedEvent }: IEventInfoDescription) =
           <div className="rounded-2xl bg-white px-9 text-xl">
             <div className="border-b py-8">
               <p className="text-secondary">Date and Time</p>
-              <p className="font-semibold">{selectedEvent?.timestamp}</p>
+              <p className="font-semibold">{selectedEvent?.timestamp.replace('T', ', T')}</p>
             </div>
             <div className="border-b py-8">
               <p className="text-secondary">Max G Norm</p>

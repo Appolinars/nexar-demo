@@ -33,11 +33,11 @@ const getLabelColors = (value: string) => {
 };
 
 const labelTextByKey = {
-  [PropertiesValuesEnum.no]: 'No',
-  [PropertiesValuesEnum.low_level_distraction]: 'Low',
-  [PropertiesValuesEnum.medium_level_distraction]: 'Medium',
-  [PropertiesValuesEnum.yes]: 'Yes',
-  [PropertiesValuesEnum.high_level_distraction]: 'High',
+  [PropertiesValuesEnum.no]: 'NO',
+  [PropertiesValuesEnum.low_level_distraction]: 'LOW',
+  [PropertiesValuesEnum.medium_level_distraction]: 'MEDIUM',
+  [PropertiesValuesEnum.yes]: 'YES',
+  [PropertiesValuesEnum.high_level_distraction]: 'HIGH',
 };
 
 export const EventPropertiesItem = ({ label, value }: IEventPropertiesItem) => {

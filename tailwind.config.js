@@ -16,7 +16,7 @@ module.exports = {
         accent: 'rgba(var(--color-accent), <alpha-value>)',
         accentLight: 'var(--color-accent-light)',
         darkPrimary: 'var(--color-dark-primary)',
-        secondary: 'var(--color-secondary)',
+        secondary: 'rgba(var(--color-secondary), <alpha-value>)',
         secondaryBg: 'var(--color-secondary-bg)',
         success: 'rgba(var(--color-success), <alpha-value>)',
         error: 'rgba(var(--color-error), <alpha-value>)',
