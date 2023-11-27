@@ -14,7 +14,7 @@ export const EventsList = () => {
           <Link
             to={`/${event.id}`}
             className={cn(
-              'flex rounded-2xl p-6 font-semibold transition-colors hover:bg-accentLight',
+              'flex break-all rounded-2xl p-6 font-semibold transition-colors hover:bg-accentLight',
               {
                 'bg-accentLight': event.id === eventIdParam,
               }
