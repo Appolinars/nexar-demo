@@ -6,19 +6,19 @@ export interface IEvent {
   type: string;
   speed: number;
   max_g_norm: number;
-  max_g_norm_at?: string | undefined;
+  max_g_norm_at?: number | undefined;
   FRONT_camera_url: string;
-  FRONT_camera_start_time: string;
-  FRONT_camera_end_time: string;
+  FRONT_camera_start_time: number;
+  FRONT_camera_end_time: number;
   REAR_camera_url: string;
-  REAR_camera_start_time: string;
-  REAR_camera_end_time: string;
+  REAR_camera_start_time: number;
+  REAR_camera_end_time: number;
   max_g_norm_at_FRONT_video_time: number;
   latitude: number;
   longitude: number;
   max_g_norm_at_REAR_video_time: number;
   videos_txt_desc: string;
-  video_labels: string;
+  video_labels: string | IEventVideoLabels;
   driver_coaching_feedback: string;
   incident_summary: string;
   'Driver Attention': {
@@ -45,7 +45,7 @@ export interface IEventVideoLabels {
   road_conditions: string;
   driver_distracted: string;
   driver_is_eating_or_drinking: string;
-  driver_is_looking_on_the_road: string;
+  driver_is_looking_on_the_road?: string;
   driver_face_occluded: string;
   passengers_in_the_car: string;
 }

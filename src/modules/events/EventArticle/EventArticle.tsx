@@ -14,7 +14,7 @@ export const EventArticle = () => {
 
   useEffect(() => {
     if (eventId) {
-      const event = eventsJson.find((event) => event.id === eventId);
+      const event = eventsJson.find((event) => event.id === eventId) as IEvent;
       setSelectedEvent(event || null);
     }
   }, [eventId]);
