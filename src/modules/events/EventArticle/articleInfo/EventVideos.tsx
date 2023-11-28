@@ -6,7 +6,7 @@ export const EventVideos = ({ eventId }: { eventId: string }) => {
         <video className="mb-1 rounded-lg" controls key={`${eventId}_cf`} muted playsInline>
           <source src={`/video/${eventId}_cf.webm`} type="video/webm" />
         </video>
-        <span className="bg-secondary/90 absolute left-1/2 top-3 -translate-x-1/2 rounded-2xl px-3 py-2 uppercase text-white">
+        <span className="absolute left-1/2 top-3 -translate-x-1/2 rounded-2xl bg-secondary/90 px-3 py-2 uppercase text-white">
           Cabin view
         </span>
       </div>
@@ -14,7 +14,7 @@ export const EventVideos = ({ eventId }: { eventId: string }) => {
         <video className="rounded-2xl" controls key={`${eventId}_rf`} muted playsInline>
           <source src={`/video/${eventId}_rf.webm`} type="video/webm" />
         </video>
-        <span className="bg-secondary/90 absolute left-1/2 top-3 -translate-x-1/2 rounded-2xl px-3 py-2 uppercase text-white">
+        <span className="absolute left-1/2 top-3 -translate-x-1/2 rounded-2xl bg-secondary/90 px-3 py-2 uppercase text-white">
           Road view
         </span>
       </div>

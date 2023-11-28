@@ -24,8 +24,8 @@ export const EventInfoDescription = ({ selectedEvent }: IEventInfoDescription) =
               <p className="font-semibold">{selectedEvent?.timestamp.replace('T', ', T')}</p>
             </div>
             <div className="border-b py-8">
-              <p className="text-secondary">Max G Norm</p>
-              <p className="font-semibold">{selectedEvent?.max_g_norm}</p>
+              <p className="text-secondary">Max G</p>
+              <p className="font-semibold">{selectedEvent?.max_g_norm.toFixed(3)}</p>
             </div>
             <div className="flex justify-between py-8">
               <div className="inline-flex items-center">

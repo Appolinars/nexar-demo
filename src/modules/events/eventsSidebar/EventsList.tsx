@@ -21,7 +21,10 @@ export const EventsList = () => {
             )}
           >
             <SquareIcon className="mr-3 shrink-0" />
-            <span>{event.id}</span>
+            <span className="flex flex-col">
+              <span>[{event?.id?.slice(-5)}]</span>
+              <span>{event?.timestamp}</span>
+            </span>
           </Link>
         </li>
       ))}
