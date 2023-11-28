@@ -2,10 +2,10 @@ import { PropertiesValuesEnum } from '../EventArticle.types';
 
 interface IEventPropertiesItem {
   label: string;
-  value: PropertiesValuesEnum;
+  value: PropertiesValuesEnum | string | number;
 }
 
-const getLabelColors = (value: string) => {
+const getLabelColors = (value: string | number) => {
   switch (value) {
     case 'no':
       return {
@@ -40,17 +40,20 @@ const labelTextByKey = {
   [PropertiesValuesEnum.high_level_distraction]: 'HIGH',
 };
 
+type LabelTextKey = keyof typeof labelTextByKey;
+
 export const EventPropertiesItem = ({ label, value }: IEventPropertiesItem) => {
   const colors = getLabelColors(value);
   // Humanize the key to a more readable format
   const readableKey = label.replace(/_/g, ' ').replace(/\b\w/g, (word) => word.toUpperCase());
   const valueFallback = value?.toString().toUpperCase().replace(/_/g, ' ') || 'N/A';
+  const valueText = labelTextByKey[value as LabelTextKey] || valueFallback;
 
   return (
     <li className="flex items-center justify-between">
       <span className="text-xl">{readableKey}</span>
       <span className={`${colors.bg} ${colors.text} rounded-3xl px-3 py-2 font-semibold`}>
-        {labelTextByKey[value] || valueFallback}
+        {valueText || valueFallback}
       </span>
     </li>
   );

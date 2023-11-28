@@ -13,7 +13,7 @@ interface IEventArticleDetails {
 export const EventArticleDetails = ({ selectedEvent }: IEventArticleDetails) => {
   return (
     <div className="grid auto-rows-max grid-cols-1 items-start gap-4">
-      <EventProperties videoLabels={selectedEvent?.video_labels} />
+      <EventProperties selectedEvent={selectedEvent} />
       <EventCoachingFeedback feedback={selectedEvent?.driver_coaching_feedback || ''} />
       <RoadVideoDescription description={selectedEvent?.videos_txt_desc || ''} />
       <CabinVideoDescription description={selectedEvent?.videos_txt_desc || ''} />

@@ -13,6 +13,10 @@ interface IEventInfoDescription {
 }
 
 export const EventInfoDescription = ({ selectedEvent }: IEventInfoDescription) => {
+  const eventDate = new Date(selectedEvent?.timestamp).toLocaleDateString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
   return (
     <Accordion type="single" collapsible defaultValue="item-1">
       <AccordionItem value="item-1">
@@ -21,7 +25,7 @@ export const EventInfoDescription = ({ selectedEvent }: IEventInfoDescription) =
           <div className="rounded-2xl bg-white px-9 text-xl">
             <div className="border-b py-8">
               <p className="text-secondary">Date and Time</p>
-              <p className="font-semibold">{selectedEvent?.timestamp.replace('T', ', T')}</p>
+              <p className="font-semibold">{eventDate}</p>
             </div>
             <div className="border-b py-8">
               <p className="text-secondary">Max G</p>

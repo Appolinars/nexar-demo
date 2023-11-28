@@ -6,7 +6,7 @@ import { cn } from '@/shared/utils';
 
 export const EventsList = () => {
   const { eventId: eventIdParam } = useParams();
-
+  console.log({ eventsJson });
   return (
     <ul className="custom-scrollbar mb-5 max-h-[70vh] overflow-y-auto">
       {eventsJson.map((event) => (
@@ -23,7 +23,7 @@ export const EventsList = () => {
             <SquareIcon className="mr-3 shrink-0" />
             <span className="flex flex-col">
               <span>[{event?.id?.slice(-5)}]</span>
-              <span>{event?.timestamp}</span>
+              <span>{new Date(event?.timestamp).toLocaleDateString('en-US')}</span>
             </span>
           </Link>
         </li>

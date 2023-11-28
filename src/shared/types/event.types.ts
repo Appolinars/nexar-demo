@@ -2,7 +2,7 @@ export interface IEvent {
   id: string;
   agent_id: string;
   device_sn: string;
-  timestamp: string;
+  timestamp: number;
   type: string;
   speed: number;
   max_g_norm: number;
@@ -21,6 +21,15 @@ export interface IEvent {
   video_labels: string;
   driver_coaching_feedback: string;
   incident_summary: string;
+  'Driver Attention': {
+    [key: string]: string | number;
+  };
+  'Driver Environment': {
+    [key: string]: string | number;
+  };
+  'Driving Events': {
+    [key: string]: string | number;
+  };
 }
 
 export interface IEventVideoLabels {

@@ -4,32 +4,51 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/Accordion';
-import { IEventVideoLabels } from '@/shared/types/event.types';
+import { IEvent, IEventVideoLabels } from '@/shared/types/event.types';
 
 import { PropertiesValuesEnum } from '../EventArticle.types';
 import { EventPropertiesItem } from './EventPropertiesItem';
 
 interface IEventProperties {
-  videoLabels: string;
+  selectedEvent: IEvent;
 }
 
-export const EventProperties = ({ videoLabels }: IEventProperties) => {
-  // Parse the JSON string into an object
-  const labels: IEventVideoLabels = JSON.parse(videoLabels);
-
-  const propertiesArray = Object.entries(labels);
-  // Map each key-value pair in the labels object to a list item
-  const listItems = propertiesArray.map(([key, value]: [string, PropertiesValuesEnum]) => (
-    <EventPropertiesItem key={key} label={key} value={value} />
-  ));
+const renderEventProperties = (
+  properties: { [key: string]: string | number } | IEventVideoLabels,
+  title: string
+) => {
+  const propertiesList = Object.entries(properties).map(
+    ([key, value]: [string, PropertiesValuesEnum | string | number]) => (
+      <EventPropertiesItem key={key} label={key} value={value} />
+    )
+  );
 
   return (
-    <div className="rounded-2xl bg-secondaryBg px-1">
+    propertiesList.length > 0 && (
+      <div className="mb-4 border-b pb-4 last:border-none last:p-0">
+        {title && <p className="mb-2 font-semibold">{title}</p>}
+        <ul className="grid grid-cols-2 gap-4">{propertiesList}</ul>
+      </div>
+    )
+  );
+};
+
+export const EventProperties = ({ selectedEvent }: IEventProperties) => {
+  const videoLabels = selectedEvent?.video_labels;
+  // Parse the JSON string into an object
+  const labels: IEventVideoLabels =
+    typeof videoLabels === 'object' ? videoLabels : JSON.parse(videoLabels);
+
+  return (
+    <div className="rounded-2xl bg-secondaryBg p-1">
       <Accordion type="single" collapsible defaultValue="item-1">
         <AccordionItem value="item-1">
           <AccordionTrigger className="p-8">Event Properties</AccordionTrigger>
-          <AccordionContent>
-            <ul className="grid grid-cols-2 gap-4 rounded-2xl bg-white p-9 text-xl">{listItems}</ul>
+          <AccordionContent className="rounded-2xl bg-white p-9 text-xl">
+            {renderEventProperties(selectedEvent['Driver Attention'], 'Driver Attention')}
+            {renderEventProperties(selectedEvent['Driver Environment'], 'Driver Environment')}
+            {renderEventProperties(selectedEvent['Driving Events'], 'Driving Events')}
+            {renderEventProperties(labels, '')}
           </AccordionContent>
         </AccordionItem>
       </Accordion>
