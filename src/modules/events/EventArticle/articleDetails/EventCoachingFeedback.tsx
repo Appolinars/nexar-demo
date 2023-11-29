@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import EditIcon from 'svg/pen.svg?react';
 
 import {
@@ -21,6 +21,13 @@ export const EventCoachingFeedback = ({ feedback }: { feedback: string }) => {
   const [showEditDialog, setShowEditDialog] = useState(false);
   const [feedbackState, setFeedbackState] = useState(feedback);
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    if (feedback) {
+      // update text on page changes
+      setFeedbackState(feedback);
+    }
+  }, [feedback]);
 
   const handleEditClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
